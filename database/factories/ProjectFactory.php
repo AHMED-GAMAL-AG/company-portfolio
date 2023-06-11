@@ -23,7 +23,7 @@ class ProjectFactory extends Factory
 
         return [
             'title' => $this->faker->sentence,
-            'description' => $this->faker->paragraph,
+            'description' => $this->faker->paragraph(50 , true),
             'image_path' => $image_path,
         ];
     }

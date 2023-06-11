@@ -63,6 +63,7 @@
 
     <main class="max-w-6xl mx-auto mt-6 lg:mt-20 space-y-6">
         <article class="transition-colors duration-300 hover:bg-gray-100 border border-black border-opacity-0 hover:border-opacity-5 rounded-xl">
+
             <div class="py-6 px-5 lg:flex">
                 <div class="flex-1 lg:mr-8">
                     <img src="{{ asset($projects[0]->image_path) }}" alt="project image" class="rounded-xl">
@@ -77,14 +78,14 @@
                             </h1>
 
                             <span class="mt-2 block text-gray-400 text-xs">
-                                Published <time> {{$projects[0]->created_at->diffForHumans()}} </time>
+                                Published <time> {{ $projects[0]->created_at->diffForHumans() }} </time>
                             </span>
                         </div>
                     </header>
 
                     <div class="text-sm">
                         <p>
-                            {{ $projects[0]->description }}
+                            {{ Illuminate\Support\Str::limit($projects[0]->description, $limit = 450, $end = '...') }}
                         </p>
                     </div>
 
@@ -97,11 +98,12 @@
                         </div>
 
                         <div class="hidden lg:block">
-                            <a href="#" class="transition-colors duration-300 text-xs font-semibold bg-gray-200 hover:bg-gray-300 rounded-full py-2 px-8">Read More</a>
+                            <a href="{{ route('projects.show', $projects[0]) }}" class="transition-colors duration-300 text-xs font-semibold bg-gray-200 hover:bg-gray-300 rounded-full py-2 px-8">{{ __('Read More') }}</a>
                         </div>
                     </footer>
                 </div>
             </div>
+
         </article>
 
         <div class="lg:grid lg:grid-cols-6">
@@ -127,7 +129,7 @@
 
                             <div class="text-sm mt-4">
                                 <p>
-                                    {{ $project->description }}
+                                    {{ Illuminate\Support\Str::limit($project->description, $limit = 250, $end = '...') }}
                                 </p>
                             </div>
 
@@ -140,8 +142,8 @@
                                 </div>
 
                                 <div>
-                                    <a href="#" class="transition-colors duration-300 text-xs font-semibold bg-gray-200 hover:bg-gray-300 rounded-full py-2 px-8">
-                                        Read More
+                                    <a href="{{ route('projects.show', $project) }}" class="transition-colors duration-300 text-xs font-semibold bg-gray-200 hover:bg-gray-300 rounded-full py-2 px-8">
+                                        {{ __('Read More') }}
                                     </a>
                                 </div>
                             </footer>
@@ -151,7 +153,7 @@
             @endforeach
         </div>
 
-
+        {{ $projects->links() }}
     </main>
 
     @include('partials.footer')

@@ -12,9 +12,9 @@ class ProjectController extends Controller
      */
     public function index()
     {
-        $projects = Project::all();
+        $projects = Project::paginate(6);
 
-        return view('index', compact('projects'));
+        return view('projects.index', compact('projects'));
     }
 
     /**
@@ -38,7 +38,7 @@ class ProjectController extends Controller
      */
     public function show(Project $project)
     {
-        //
+        return view('projects.show', compact('project'));
     }
 
     /**
