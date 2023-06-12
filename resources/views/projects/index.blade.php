@@ -3,12 +3,10 @@
 @section('content')
     <header class="max-w-xl mx-auto mt-20 text-center">
         <h1 class="text-4xl">
-            Latest <span class="text-blue-500">Laravel From Scratch</span> News
+            Latest <span class="text-blue-500">Projects From Hassan</span> Alam
         </h1>
 
-        <h2 class="inline-flex mt-2">By Lary Laracore <img src="{{ asset('images/lary-head.svg') }}" alt="Head of Lary the mascot"></h2>
-
-        <p class="text-sm mt-14">
+        <p class="text-sm mt-12">
             Another year. Another update. We're refreshing the popular Laravel series with new content.
             I'm going to keep you guys up to speed with what's going on!
         </p>
@@ -66,7 +64,7 @@
 
             <div class="py-6 px-5 lg:flex">
                 <div class="flex-1 lg:mr-8">
-                    <img src="{{ asset($projects[0]->image_path) }}" alt="project image" class="rounded-xl">
+                    <img src="{{ asset('storage/' . $projects[0]->image_path) }}" alt="project image" class="rounded-xl">
                 </div>
 
                 <div class="flex-1 flex flex-col justify-between">
@@ -111,7 +109,7 @@
                 <article class="transition-colors duration-300 hover:bg-gray-100 border border-black border-opacity-0 hover:border-opacity-5 rounded-xl {{ $loop->iteration < 3 ? 'col-span-3' : 'col-span-2' }}">
                     <div class="py-6 px-5">
                         <div>
-                            <img src="{{ asset($project->image_path) }}" alt="Blog Post illustration" class="rounded-xl">
+                            <img src="{{ asset('storage/' . $project->image_path) }}" alt="Blog Post illustration" class="rounded-xl">
                         </div>
 
                         <div class="mt-8 flex flex-col justify-between">

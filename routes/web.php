@@ -25,5 +25,4 @@ Route::middleware([
     })->name('dashboard');
 });
 
-Route::get('/', [ProjectController::class, 'index']);
 Route::resource('/projects', ProjectController::class);

@@ -7,6 +7,12 @@ use Illuminate\Http\Request;
 
 class ProjectController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->middleware('auth')->except(['index', 'show']);
+    }
+
     /**
      * Display a listing of the resource.
      */
@@ -22,7 +28,7 @@ class ProjectController extends Controller
      */
     public function create()
     {
-        //
+        return view('projects.create');
     }
 
     /**
@@ -30,7 +36,21 @@ class ProjectController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $request->validate([
+            'title' => 'required',
+            'description' => 'required',
+            'image_path' => 'required',
+        ]);
+
+        if ($request->hasFile('image_path')) {
+            $image = $request->file('image_path');
+            $imagePath = $image->store('images', 'public'); // Store the image in the "public" disk under the "images" folder
+            $data['image_path'] = $imagePath;
+        }
+
+        Project::create($data);
+
+        return redirect('/projects');
     }
 
     /**
