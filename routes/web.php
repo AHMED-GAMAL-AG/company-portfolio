@@ -1,6 +1,8 @@
 <?php
 
+use App\Http\Controllers\LanguageController;
 use App\Http\Controllers\ProjectController;
+use App\Models\Project;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -20,9 +22,11 @@ Route::middleware([
     config('jetstream.auth_session'),
     'verified'
 ])->group(function () {
-    Route::get('/dashboard', function () {
-        return view('dashboard');
-    })->name('dashboard');
+    Route::get('/', function () {
+        return view('projects.index', ['projects' => Project::paginate(6)]);
+    })->name('home');
 });
 
 Route::resource('/projects', ProjectController::class);
+
+Route::get('lang/{locale}', [LanguageController::class, 'changeLocale'])->name('lang.switch');

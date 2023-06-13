@@ -3,7 +3,7 @@
 @section('content')
     <header class="max-w-xl mx-auto mt-20 text-center">
         <h1 class="text-4xl">
-            Latest <span class="text-blue-500">Projects From Hassan</span> Alam
+            {{__('Latest')}} <span class="text-blue-500">{{__('Projects From Hassan')}}</span> {{__('Alam')}}
         </h1>
 
         <p class="text-sm mt-12">
