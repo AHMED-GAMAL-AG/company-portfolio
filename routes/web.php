@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\LanguageController;
 use App\Http\Controllers\ProjectController;
+use App\Http\Controllers\SubscriberController;
 use App\Models\Project;
 use Illuminate\Support\Facades\Route;
 
@@ -30,3 +31,5 @@ Route::middleware([
 Route::resource('/projects', ProjectController::class);
 
 Route::get('lang/{locale}', [LanguageController::class, 'changeLocale'])->name('lang.switch');
+
+Route::post('/subscribe', [SubscriberController::class, 'subscribe'])->name('subscribe');
