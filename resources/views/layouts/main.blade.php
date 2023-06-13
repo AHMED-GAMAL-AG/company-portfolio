@@ -277,7 +277,7 @@
                     @endcan
 
                     @can('create-project')
-                        <x-nav-link href="{{ route('projects.create') }}" :active="request()->routeIs('projects.create')">
+                        <x-nav-link href="{{ route('send-emails') }}" :active="request()->routeIs('send-emails')">
                             {{ __('Send Email') }}
                         </x-nav-link>
                     @endcan

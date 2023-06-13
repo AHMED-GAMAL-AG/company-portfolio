@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\EmailController;
 use App\Http\Controllers\LanguageController;
 use App\Http\Controllers\ProjectController;
 use App\Http\Controllers\SubscriberController;
@@ -33,3 +34,5 @@ Route::resource('/projects', ProjectController::class);
 Route::get('lang/{locale}', [LanguageController::class, 'changeLocale'])->name('lang.switch');
 
 Route::post('/subscribe', [SubscriberController::class, 'subscribe'])->name('subscribe');
+
+Route::get('/send-emails', [EmailController::class, 'show'])->name('send-emails');
