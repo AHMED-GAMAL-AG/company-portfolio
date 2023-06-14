@@ -35,4 +35,5 @@ Route::get('lang/{locale}', [LanguageController::class, 'changeLocale'])->name('
 
 Route::post('/subscribe', [SubscriberController::class, 'subscribe'])->name('subscribe');
 
-Route::get('/send-emails', [EmailController::class, 'show'])->name('send-emails');
+Route::get('/emails', [EmailController::class, 'show'])->name('email.show');
+Route::post('/send', [EmailController::class, 'sendEmail'])->name('email.send');

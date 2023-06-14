@@ -22,9 +22,9 @@ class ProjectFactory extends Factory
         $image_index++;
 
         return [
-            'title' => __($this->faker->sentence),
-            'description' => __($this->faker->paragraph(50 , true)),
-            'image_path' => __($image_path),
+            'title' => $this->faker->sentence,
+            'description' => $this->faker->paragraph(50 , true),
+            'image_path' => $image_path,
         ];
     }
 }

@@ -4,7 +4,7 @@
     <main class="max-w-6xl mx-auto mt-6 lg:mt-20 space-y-6">
 
         <div class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
-            <form method="POST" action="">
+            <form method="POST" action="{{ route('email.send') }}">
                 @csrf
 
                 <div class="mb-4">

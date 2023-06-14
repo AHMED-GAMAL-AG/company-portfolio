@@ -11,7 +11,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
 
-    {{-- Fonts --}}
+    {{-- IBM Plex Sans Arabic --}}
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;700&display=swap" rel="stylesheet">
@@ -277,7 +277,7 @@
                     @endcan
 
                     @can('create-project')
-                        <x-nav-link href="{{ route('send-emails') }}" :active="request()->routeIs('send-emails')">
+                        <x-nav-link href="{{ route('email.show') }}" :active="request()->routeIs('email.show')">
                             {{ __('Send Email') }}
                         </x-nav-link>
                     @endcan
