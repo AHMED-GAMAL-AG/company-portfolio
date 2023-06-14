@@ -50,7 +50,7 @@ class ProjectController extends Controller
 
         Project::create($data);
 
-        return redirect('/projects');
+        return redirect('/projects')->with('success', 'Project created successfully!');
     }
 
     /**
