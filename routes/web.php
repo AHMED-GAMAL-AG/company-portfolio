@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\EmailController;
 use App\Http\Controllers\LanguageController;
 use App\Http\Controllers\ProjectController;
@@ -37,3 +38,6 @@ Route::post('/subscribe', [SubscriberController::class, 'subscribe'])->name('sub
 
 Route::get('/emails', [EmailController::class, 'show'])->name('email.show');
 Route::post('/send', [EmailController::class, 'sendEmail'])->name('email.send');
+
+Route::get('/admin/users', [AdminController::class , 'index'])->name('users.all');
+Route::patch('/admin/users/{user}', [AdminController::class, 'update'])->name('users.update');

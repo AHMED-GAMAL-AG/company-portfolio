@@ -18,7 +18,7 @@ return new class extends Migration
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->rememberToken();
-            $table->boolean('administration_level')->default(false); // 0 = user, 1 = admin
+            $table->unsignedBigInteger('administration_level')->default(0); // 0 normal user , 1 admin
             $table->foreignId('current_team_id')->nullable();
             $table->string('profile_photo_path', 2048)->nullable();
             $table->timestamps();

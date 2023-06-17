@@ -313,6 +313,12 @@
                                     {{ __('Manage Account') }}
                                 </div>
 
+                                @can('create-project')
+                                    <x-dropdown-link href="{{ route('users.all') }}">
+                                        {{ __('Dashboard') }}
+                                    </x-dropdown-link>
+                                @endcan
+
                                 <x-dropdown-link href="{{ route('profile.show') }}">
                                     {{ __('Profile') }}
                                 </x-dropdown-link>
